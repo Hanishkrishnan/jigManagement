@@ -1,0 +1,26 @@
+/* Use a prebuilt Angular Material theme in a plain CSS file.
+   For custom theming with `@use` and `mat.theme()`, switch this file to SCSS. */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+  height: 100%;
+}
+
+body {
+  /* Default the application to a light color theme. */
+  /* color-scheme: light; */
+
+  /* Set a default background, font and text colors for the application using
+     Angular Material's system-level CSS variables. */
+  /* background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium); */
+
+  /* Reset the user agent margin. */
+  height: 100%;
+
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+}
+/* You can add global styles to this file, and also import other style files */

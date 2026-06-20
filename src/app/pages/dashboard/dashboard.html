@@ -1,0 +1,111 @@
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body">
+
+          <h5>Projects</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body" (click)="redirect('jigform')">
+
+          <h5>JIGS</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body" (click)="redirect('qualityform')">
+
+          <h5>Quality Checks</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<app-sidebar></app-sidebar>
+  <app-navbar></app-navbar>
+
+<div class="content">
+  <!-- <div class="navbar">
+    <input type="text" placeholder="Search..." class="search-box" />
+  </div> -->
+  <h1>Dashboard</h1>
+
+  <p class="breadcrumb">Dashboard > Home</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="icon-box blue">
+        📁
+    </div>
+      <h2>{{ newOrders }}</h2>
+      <p>New Orders</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-box yellow">
+    🔧
+</div>
+      
+      <h2>{{ visitors }}</h2>
+      <p>Visitors</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-box orange">
+    ✔
+</div>
+      <h2>{{ totalsales }}</h2>
+      <p>Total sales</p>
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <div class="recent-orders">
+      <div class="table-header">
+
+    <h2>Recent Orders</h2>
+
+  
+
+</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.user }}</td>
+
+            <td>{{ order.date }}</td>
+
+            <td>
+              <span
+                [ngClass]="{
+                  completed: order.status === 'Completed',
+                  pending: order.status === 'Pending',
+                  process: order.status === 'Process',
+                }"
+              >
+                {{ order.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

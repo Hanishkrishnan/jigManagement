@@ -1,0 +1,15 @@
+.content{
+ margin-left:270px;
+ padding:30px;
+}
+
+form{
+ width:400px;
+ display:flex;
+ flex-direction:column;
+ gap:15px;
+}
+
+input,select{
+ padding:10px;
+}

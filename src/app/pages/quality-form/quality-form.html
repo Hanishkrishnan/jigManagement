@@ -1,0 +1,75 @@
+<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+
+<div class="content">
+
+  <div class="form-card">
+
+    <div class="header">
+
+      <h2>Quality Check Form</h2>
+
+      <p>Verify and approve JIG quality information</p>
+
+    </div>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>JIG Name</label>
+        <input
+          type="text"
+          value="jig-1606-iec-01"
+          readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Project</label>
+        <input
+          type="text"
+          value="IEC"
+          readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Part</label>
+        <input
+          type="text"
+          value="FL"
+          readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Status</label>
+
+        <select>
+
+          <option>PASS</option>
+          <option>FAIL</option>
+          <option>REWORK</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+    <div class="form-group remarks">
+
+      <label>Remarks</label>
+
+      <textarea rows="5"></textarea>
+
+    </div>
+
+    <div class="button-section">
+
+      <button class="save-btn">
+        Save Quality Check
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
