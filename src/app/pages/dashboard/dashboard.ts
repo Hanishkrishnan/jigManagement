@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Sidebar } from '../../layout/sidebar/sidebar';
 import { CommonModule } from '@angular/common';
 import { Navbar } from "../../layout/navbar/navbar";
+import { JigService } from '../../core/services/jig-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,8 @@ export class Dashboard {
   newOrders=4;
   visitors=2500;
   totalsales=15000;
-  constructor(private router:Router){
+  orderDetails = signal<any>(null);
+  constructor(private router:Router,public jigService:JigService){
 
   }
 
@@ -50,4 +52,6 @@ export class Dashboard {
 }
 
 ];
+
+
 }

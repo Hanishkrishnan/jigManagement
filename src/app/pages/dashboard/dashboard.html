@@ -80,17 +80,19 @@
       <table>
         <thead>
           <tr>
-            <th>User</th>
-            <th>Date</th>
-            <th>Status</th>
+            <th>Project Name</th>
+            <th>Product</th>
+            <th>Quantity</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr *ngFor="let order of orders">
-            <td>{{ order.user }}</td>
+          <tr *ngFor="let order of jigService.orders()">
+            <td>{{ order.projectName }}</td>
 
-            <td>{{ order.date }}</td>
+            <td>{{ order.partName }}</td>
+            <td>{{ order.quantity }}</td>
+
 
             <td>
               <span

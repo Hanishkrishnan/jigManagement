@@ -1,38 +1,28 @@
 <app-sidebar></app-sidebar>
 
 <div class="content">
+  <h1>Create JIG</h1>
 
-<h1>Create JIG</h1>
+  <form [formGroup]="jigForm" (ngSubmit)="create()">
+    <label for="projectName">Project</label>
 
-<form>
+    <select formControlName="projectName">
+      <option>IEC</option>
+      <option>UL</option>
+      <option>CRB</option>
+    </select>
 
-<label>Project</label>
+    <label for="partName">Part</label>
 
-<select>
+    <select formControlName="partName">
+      <option>FL</option>
+      <option>STORE PROC</option>
+    </select>
 
-<option>IEC</option>
-<option>UL</option>
-<option>CRB</option>
+    <label for="quantity">Quantity</label>
 
-</select>
+    <input type="number" formControlName="quantity"/>
 
-<label>Part</label>
-
-<select>
-
-<option>FL</option>
-<option>STORE PROC</option>
-
-</select>
-
-<label>Quantity</label>
-
-<input type="number">
-
-<button>
-Generate
-</button>
-
-</form>
-
+    <button class="btn btn-primary">Create</button>
+  </form>
 </div>
