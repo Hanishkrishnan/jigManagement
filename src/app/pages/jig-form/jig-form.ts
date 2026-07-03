@@ -18,10 +18,12 @@ export class JigForm {
   });
 
   constructor(private jfb: FormBuilder, private jigService: JigService) {
+    
   }
 
   ngOnInit(){
-    this.jigService.loadOrders();
+    //this.jigService.loadOrders();
+   // this.getProductDetails();
   }
 
   create(){
@@ -38,6 +40,12 @@ export class JigForm {
       projectName: '',
       partName: '',
       quantity: ''
+    });
+  }
+
+  getProductDetails(){
+    this.jigService.getProduct().subscribe(data => {
+      console.log(data);
     });
   }
 }

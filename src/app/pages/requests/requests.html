@@ -1,0 +1,55 @@
+<app-sidebar></app-sidebar>
+<div class="request-page">
+  <h4 class="request_heading" >
+   <a (click)="redirectToAllRequest()" style="cursor: pointer;">&larr; All request</a> 
+    
+</h4>
+  <div class="requests-details">
+    <h2>{{ individual_Request().name }}</h2>
+    <p class="req_des">
+      {{ individual_Request().description }}
+    </p>
+
+    <p class="req_data">
+      <span><strong>Status:</strong> {{ individual_Request().status }}</span>
+      <span><strong>Quantity:</strong> {{ individual_Request().quantity }}</span>
+      <span><strong>Units:</strong> 0/{{ individual_Request().quantity }}</span>
+      <span><strong>Created:</strong> {{ individual_Request().date | date: 'dd-MM-yyyy' }} </span>
+    </p>
+  </div>
+
+  <div class="drawing-section">
+    <h5>Drawing</h5>
+
+    <div class="workflow-card">
+      <span class="status-badge">{{ individual_Request().status }}</span>
+
+      <span class="drawing-text"> Required before unit 1 can be produced </span>
+
+      <button class="btn btn-warning">Start drawing</button>
+    </div>
+  </div>
+
+  <!-- Units Section -->
+  <div class="units-section">
+    <h5>Units (Qty {{ individual_Request().quantity }})</h5>
+
+    <div class="unit-card">
+      <div class="unit_det">
+        <h6>Unit 1</h6>
+        <small>(First Piece)</small>
+      </div>
+
+      <span class="locked-badge">Locked</span>
+
+      <p>Waiting on unit 1 to pass QC</p>
+    </div>
+  </div>
+
+  <!-- History Section -->
+  <div class="history-section">
+    <h5>History</h5>
+
+    <div class="history-card">No activity yet.</div>
+  </div>
+</div>

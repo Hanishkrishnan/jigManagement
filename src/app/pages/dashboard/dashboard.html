@@ -1,71 +1,51 @@
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card shadow">
-        <div class="card-body">
-
-          <h5>Projects</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow">
-        <div class="card-body" (click)="redirect('jigform')">
-
-          <h5>JIGS</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow">
-        <div class="card-body" (click)="redirect('qualityform')">
-
-          <h5>Quality Checks</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <app-sidebar></app-sidebar>
   <app-navbar></app-navbar>
 
 <div class="content">
-  <!-- <div class="navbar">
-    <input type="text" placeholder="Search..." class="search-box" />
-  </div> -->
-  <h1>Dashboard</h1>
 
-  <p class="breadcrumb">Dashboard > Home</p>
+  <div class="dashboard-header">
+   <div class="page-header">
+     @if (sidebarService.selectedView()=='dashboard'){
+      <h2>Dashboard</h2>
+      <p class="page-subtitle">Overview of all active requests</p>
+     }
+     @if (sidebarService.selectedView() == 'requests') {
+      <h2>Requests</h2>
+      <p class="page-subtitle">All requests and their current stage</p>
+     }
+   </div>
+   <button mat-raised-button class="btn btn-secondary" (click)="openDialog()">New Request</button>
+  </div>
 
-  <div class="cards">
+  @if (sidebarService.selectedView()=='dashboard') {
+    <div class="cards">
     <div class="card">
-      <div class="icon-box blue">
-        📁
-    </div>
+      <p>New Requests</p>
       <h2>{{ newOrders }}</h2>
-      <p>New Orders</p>
-    </div>
-
-    <div class="card">
-      <div class="icon-box yellow">
-    🔧
-</div>
       
+    </div>
+
+    <div class="card"> 
+      <p>In Drawing</p>     
       <h2>{{ visitors }}</h2>
-      <p>Visitors</p>
+      
     </div>
 
     <div class="card">
-      <div class="icon-box orange">
-    ✔
-</div>
+      <p>In Process</p>
       <h2>{{ totalsales }}</h2>
-      <p>Total sales</p>
+    </div>
+
+    <div class="card">
+      <p>Completed</p>
+      <h2>{{ totalsales }}</h2>
     </div>
   </div>
+
+  }
+
+  
 
   <div class="bottom-section">
     <div class="recent-orders">
@@ -80,32 +60,42 @@
       <table>
         <thead>
           <tr>
-            <th>Project Name</th>
-            <th>Product</th>
-            <th>Quantity</th>
+            <th>Id</th>
+            <th>Decription</th>
+            <th>Qty</th>
+            <th>Created Date</th>
+            <th>Status</th>
+            <th>Drawing</th>
+            <th>Units passes</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr *ngFor="let order of jigService.orders()">
-            <td>{{ order.projectName }}</td>
-
-            <td>{{ order.partName }}</td>
-            <td>{{ order.quantity }}</td>
+          @for(request of apiservice.request(); track request.reqid){
+<tr class="requesthover" (click)="openRequest(request.reqid)">  
+           <td>{{ request.reqid }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.quantity }}</td>
+            <td>{{request.date | date:'dd-MM-yyyy'}}</td>
 
 
             <td>
               <span
                 [ngClass]="{
-                  completed: order.status === 'Completed',
-                  pending: order.status === 'Pending',
-                  process: order.status === 'Process',
+                  completed: request.status === 'Completed',
+                  pending: request.status === 'Pending',
+                  process: request.status === 'In Progress',
+                  newStatus : request.status === 'New',
                 }"
               >
-                {{ order.status }}
+                {{ request.status }}
               </span>
             </td>
+            <td></td>
+            <td><span>0/</span>{{request.quantity}}</td>
           </tr>
+          }
+          
         </tbody>
       </table>
     </div>

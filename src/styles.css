@@ -24,3 +24,14 @@ body {
     background:#f4f6f9;
 }
 /* You can add global styles to this file, and also import other style files */
+.request-dialog .mat-mdc-dialog-surface{
+
+    border-radius:16px !important;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.18) !important;
+
+    padding:0 !important;
+
+    overflow:hidden;
+}

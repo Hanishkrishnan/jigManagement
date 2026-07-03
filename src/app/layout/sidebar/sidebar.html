@@ -5,29 +5,34 @@
     <div class="logo-circle">
         ⚙️
     </div>
-
-     
-
-
     <h3>JIG TOOLS</h3>
-
     <p>Management</p>
 
 </div>
-    <ul>
-
-        <li routerLink="/dashboard">
+<div class="sidebar-section">
+        <ul>
+        <li routerLink="/dashboard" id="dashboard" (click)="showDashboard()">
             Dashboard
         </li>
-
-        <li routerLink="/jigform">
-            JIG Registration
+        <li routerLink="/dashboard" id="requests" (click)="showRequests()">
+            Requests
         </li>
-
-        <li routerLink="/qualityform">
-            Quality Check
+        </ul>
+</div>
+<div class="sidebar-section">
+    <ul>
+        <li routerLink="/dashboard" id="dashboard" (click)="showDashboard()">
+            Drawing Queue
         </li>
-    
+        <li routerLink="/dashboard" id="requests" (click)="showRequests()">
+            Produce Queue
+        </li>
+        <li routerLink="/dashboard" id="dashboard" (click)="showDashboard()">
+            QC Queue
+        </li>
+        <li routerLink="/dashboard" id="requests" (click)="showRequests()">
+            Handover
+        </li>
     </ul>
-
+</div>
 </div>

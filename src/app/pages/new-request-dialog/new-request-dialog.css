@@ -1,0 +1,38 @@
+.dialog-title{
+    font-size:25px;
+    font-weight:400;
+    color:#1f2937;
+    padding:10px 28px 0;
+    margin:0;
+}
+
+.dialog-content{
+    padding:20px 28px 10px !important;
+}
+
+.full-width{
+    width:100%;
+    margin-bottom:18px;
+}
+
+.dialog-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    padding:0px 20px 15px 20px  !important;
+}
+
+button{
+    height:44px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:400;
+}
+
+.mat-mdc-stroked-button{
+    min-width:90px;
+}
+
+.mat-mdc-unelevated-button{
+    min-width:135px;
+}

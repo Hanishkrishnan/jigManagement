@@ -1,10 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, signal } from '@angular/core';
+import { Component, Output, signal } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Sidebar } from '../../layout/sidebar/sidebar';
 import { CommonModule } from '@angular/common';
 import { Navbar } from "../../layout/navbar/navbar";
 import { JigService } from '../../core/services/jig-service';
+import { SidebarService } from '../../core/services/sidebar-service';
+import {MatDialog} from '@angular/material/dialog';
+import { NewRequestDialog } from '../new-request-dialog/new-request-dialog';
+import { ApiService } from '../../core/services/api-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,40 +22,52 @@ export class Dashboard {
   visitors=2500;
   totalsales=15000;
   orderDetails = signal<any>(null);
-  constructor(private router:Router,public jigService:JigService){
+  redirectfrom = 'dashboard';
+
+
+  constructor(private router:Router,
+              public jigService:JigService,
+              public sidebarService : SidebarService,
+              private matdialog : MatDialog,
+              public apiservice : ApiService
+              ){
 
   }
+
+  ngOnInit(){
+   this.getProductDetails();
+  }
+
+  openDialog(){
+   const dialog =  this.matdialog.open(NewRequestDialog,{
+    width: '420px',
+    maxWidth: '95vw',
+    panelClass: 'request-dialog',
+    autoFocus: false,
+    restoreFocus: false
+   })
+   dialog.afterClosed().subscribe(result =>{
+    if(result){
+     console.log(result);
+    }
+    
+   })
+  }
+ getProductDetails(){
+    this.apiservice.getRequestData().subscribe(data => {
+      this.apiservice.request.set(data as any);
+    });
+  }
+  
 
   redirect(screen:any){
       this.router.navigate([`/${screen}`]);
   }
-  orders = [
 
-{
- user:'John Doe',
- date:'01-10-2021',
- status:'Completed'
-},
+  openRequest(id:number){
+    this.router.navigate(['requests',id]);
+  }
 
-{
- user:'John Doe',
- date:'01-10-2021',
- status:'Pending'
-},
-
-{
- user:'John Doe',
- date:'01-10-2021',
- status:'Process'
-},
-
-{
- user:'John Doe',
- date:'01-10-2021',
- status:'Completed'
-}
-
-];
 
 
 }

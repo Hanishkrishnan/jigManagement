@@ -1,0 +1,101 @@
+.request-page{
+    margin: 0 ;
+    margin-left:260px;
+    /* padding-top:100px; */
+    padding-left:30px;
+    padding-right:30px;
+    padding-bottom:30px;
+    background:#15181c;
+    /* 15181c */
+    min-height:100vh;
+
+}
+.requests-details >h2{
+    font-size: 36px;
+font-weight: 500;
+color: #FFFFFF;
+}
+.request_heading{
+    width: 200px;
+    padding-left: 30px;
+    padding-top: 35px;
+    color: #6f6355;
+}
+
+.drawing-section >h5, .units-section > h5, .history-section > h5{
+    /* padding-top: 35px; */
+    color: #6f6355;
+}
+.req_data{
+    display: flex;
+    gap: 30px 
+}
+.requests-details{
+    margin: 30px;
+    padding: 10px;
+    background:#34383e;
+    border:1px solid #2B3038;
+    border-radius:10px;
+    color: azure;
+}
+.req_des{
+    font-size: 15px;
+    margin-top: 6px;
+    color: #8B93A5;;
+}
+
+.section_heading{
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #cfd2d9;
+}
+/* .request-page{
+    padding:30px;
+} */
+
+.drawing-section,
+.units-section,
+.history-section{
+     margin: 30px;
+    padding: 10px;
+}
+
+.workflow-card,
+.history-card{
+    background:#34383e;
+    color:white;
+    border-radius:12px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.status-badge{
+    background:#6186be;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.unit-card{
+    width:260px;
+    background:#34383e;
+    color:white;
+    border-radius:12px;
+    padding:18px;
+}
+
+.locked-badge{
+    background:#34383e;
+    padding:5px 12px;
+    border-radius:15px;
+    font-size:12px;
+}
+
+.history-card{
+    min-height:60px;
+}
