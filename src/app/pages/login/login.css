@@ -1,6 +1,6 @@
 .login-container {
   height: 100vh;
-  background: #f4f7fc;
+  background: #84a9ea;
 
   display: flex;
   justify-content: center;
@@ -20,4 +20,16 @@
 h2 {
   margin-bottom: 25px;
   font-weight: 600;
+}
+.alert{
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rememberme{
+  padding-top: 10px;
+   display: flex;
+  align-items:center;
+  justify-content: center;
 }

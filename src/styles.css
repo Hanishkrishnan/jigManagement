@@ -35,3 +35,22 @@ body {
 
     overflow:hidden;
 }
+
+:root{
+    --bg:#15181C;
+    --bg-sidebar:#111316;
+    --bg-raised:#1C2025;
+    --bg-card:#1F2329;
+    --line:#2A2F36;
+    --text:#EDEEEC;
+    --text-dim:#8B939B;
+    --text-faint:#5C636B;
+    --accent:#E8A33D;
+    --drawing:#8B7FE8;
+    --produce:#E8A33D;
+    --qc:#4DA3D9;
+    --fail:#D9695A;
+    --pass:#5FA777;
+    --pending:#5C636B;
+    --radius:4px;
+  }

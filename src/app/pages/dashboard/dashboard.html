@@ -1,61 +1,60 @@
+<!-- <app-sidebar></app-sidebar>
+<app-navbar></app-navbar> -->
 
-<app-sidebar></app-sidebar>
-  <app-navbar></app-navbar>
-
-<div class="content">
-
+<div>
   <div class="dashboard-header">
-   <div class="page-header">
-     @if (sidebarService.selectedView()=='dashboard'){
-      <h2>Dashboard</h2>
-      <p class="page-subtitle">Overview of all active requests</p>
-     }
-     @if (sidebarService.selectedView() == 'requests') {
-      <h2>Requests</h2>
-      <p class="page-subtitle">All requests and their current stage</p>
-     }
-   </div>
-   <button mat-raised-button class="btn btn-secondary" (click)="openDialog()">New Request</button>
+    <div class="page-header">
+      @if (sidebarService.selectedView() == 'dashboard') {
+        <h2>Dashboard</h2>
+        <p class="page-subtitle">Overview of all active requests</p>
+      }
+      @if (sidebarService.selectedView() == 'requests') {
+        <h2>Requests</h2>
+        <p class="page-subtitle">All requests and their current stage</p>
+      }
+    </div>
+    <button mat-raised-button class="btn btn-secondary" (click)="openDialog()">New Request</button>
   </div>
 
-  @if (sidebarService.selectedView()=='dashboard') {
+  @if (sidebarService.selectedView() == 'dashboard') {
     <div class="cards">
-    <div class="card">
-      <p>New Requests</p>
-      <h2>{{ newOrders }}</h2>
-      
-    </div>
+      <div class="card">
 
-    <div class="card"> 
-      <p>In Drawing</p>     
-      <h2>{{ visitors }}</h2>
-      
-    </div>
+        <h1>Dashboard</h1>
 
-    <div class="card">
-      <p>In Process</p>
-      <h2>{{ totalsales }}</h2>
-    </div>
+<p>Welcome {{authService.getCurrentUser()?.role}}!</p>
 
-    <div class="card">
-      <p>Completed</p>
-      <h2>{{ totalsales }}</h2>
-    </div>
-  </div>
+<p>Authenticated: {{ authService.isAuthenticated() }}</p>
+<p>isAdmin : {{ authService.isAdmin() ? 'Admin' : 'Normal'}}</p>
+<p>User: {{ authService.currentUser()?.name }}</p>
 
+<p>Role: {{ authService.currentUser()?.role }}</p>
+        <p>New Requests</p>
+        <h2>{{ newOrders }}</h2>
+      </div>
+
+      <div class="card">
+        <p>In Drawing</p>
+        <h2>{{ visitors }}</h2>
+      </div>
+
+      <div class="card">
+        <p>In Process</p>
+        <h2>{{ totalsales }}</h2>
+      </div>
+
+      <div class="card">
+        <p>Completed</p>
+        <h2>{{ totalsales }}</h2>
+      </div>
+    </div>
   }
-
-  
 
   <div class="bottom-section">
     <div class="recent-orders">
       <div class="table-header">
-
-    <h2>Recent Orders</h2>
-
-  
-
-</div>
+        <h2>Recent Orders</h2>
+      </div>
 
       <table>
         <thead>
@@ -71,31 +70,29 @@
         </thead>
 
         <tbody>
-          @for(request of apiservice.request(); track request.reqid){
-<tr class="requesthover" (click)="openRequest(request.reqid)">  
-           <td>{{ request.reqid }}</td>
-            <td>{{ request.description }}</td>
-            <td>{{ request.quantity }}</td>
-            <td>{{request.date | date:'dd-MM-yyyy'}}</td>
+          @for (request of apiservice.request(); track request.reqid) {
+            <tr class="requesthover" (click)="openRequest(request.reqid)">
+              <td>{{ request.reqid }}</td>
+              <td>{{ request.description }}</td>
+              <td>{{ request.quantity }}</td>
+              <td>{{ request.date | date: 'dd-MM-yyyy' }}</td>
 
-
-            <td>
-              <span
-                [ngClass]="{
-                  completed: request.status === 'Completed',
-                  pending: request.status === 'Pending',
-                  process: request.status === 'In Progress',
-                  newStatus : request.status === 'New',
-                }"
-              >
-                {{ request.status }}
-              </span>
-            </td>
-            <td></td>
-            <td><span>0/</span>{{request.quantity}}</td>
-          </tr>
+              <td>
+                <span
+                  [ngClass]="{
+                    completed: request.status === 'Completed',
+                    pending: request.status === 'Pending',
+                    process: request.status === 'In Progress',
+                    newStatus: request.status === 'New',
+                  }"
+                >
+                  {{ request.status }}
+                </span>
+              </td>
+              <td></td>
+              <td><span>0/</span>{{ request.quantity }}</td>
+            </tr>
           }
-          
         </tbody>
       </table>
     </div>

@@ -21,17 +21,20 @@
 </div>
 <div class="sidebar-section">
     <ul>
-        <li routerLink="/dashboard" id="dashboard" (click)="showDashboard()">
+        <li routerLink="/drawing" routerLinkActive="active" id="dashboard">
             Drawing Queue
         </li>
-        <li routerLink="/dashboard" id="requests" (click)="showRequests()">
+        <li routerLink="/produce" routerLinkActive="active" id="requests">
             Produce Queue
         </li>
-        <li routerLink="/dashboard" id="dashboard" (click)="showDashboard()">
+        <li routerLink="/quality" routerLinkActive="active" id="dashboard">
             QC Queue
         </li>
-        <li routerLink="/dashboard" id="requests" (click)="showRequests()">
+        <li routerLink="/handover" routerLinkActive="active" id="requests">
             Handover
+        </li>
+        <li routerLink="/qualityform" routerLinkActive="active" id="qualityform">
+            Qualityform
         </li>
     </ul>
 </div>

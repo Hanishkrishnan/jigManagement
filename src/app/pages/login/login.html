@@ -1,21 +1,35 @@
 <div class="login-container">
     <div class="card p-4 login-card">
         <h2 class="text-center"> JIG Management</h2>
+        <!-- <input type="text" [value]="userLogin"> <button (click)="loginusinglocalstorage()">Login</button> -->
 
+        @if(message != ''){
+            <div class="alert alert-warning">
+            {{message}}
+        </div>
+        }
+        
         <form [formGroup]="loginForm" (ngSubmit)="login()">
 
 
             <div class="mb-3">
-                <label>Username</label>
+                <label>Email</label>
                 <input class="form-control" formControlName="username">
             </div>
             <div class="mb-3">
                 <label>Password</label>
                 <input type="password" class="form-control" formControlName="password">
             </div>
+            
             <button class="btn btn-primary w-100">
                 Login
             </button>
+            <label class="rememberme">
+           <input
+            type="checkbox"
+            formControlName="rememberMe"/>
+            Remember me
+           </label>
             
         </form>
     </div>

@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Output, signal } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { Sidebar } from '../../layout/sidebar/sidebar';
+import { Router } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
-import { Navbar } from "../../layout/navbar/navbar";
 import { JigService } from '../../core/services/jig-service';
 import { SidebarService } from '../../core/services/sidebar-service';
 import {MatDialog} from '@angular/material/dialog';
 import { NewRequestDialog } from '../new-request-dialog/new-request-dialog';
 import { ApiService } from '../../core/services/api-service';
+import { AuthService } from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Sidebar, CommonModule,Navbar],
+  imports: [CommonModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -29,7 +29,8 @@ export class Dashboard {
               public jigService:JigService,
               public sidebarService : SidebarService,
               private matdialog : MatDialog,
-              public apiservice : ApiService
+              public apiservice : ApiService,
+              public authService : AuthService
               ){
 
   }

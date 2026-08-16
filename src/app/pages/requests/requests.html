@@ -1,9 +1,8 @@
 <app-sidebar></app-sidebar>
 <div class="request-page">
-  <h4 class="request_heading" >
-   <a (click)="redirectToAllRequest()" style="cursor: pointer;">&larr; All request</a> 
-    
-</h4>
+  <h4 class="request_heading">
+    <a (click)="redirectToAllRequest()" style="cursor: pointer">&larr; All request</a>
+  </h4>
   <div class="requests-details">
     <h2>{{ individual_Request().name }}</h2>
     <p class="req_des">
@@ -18,7 +17,7 @@
     </p>
   </div>
 
-  <div class="drawing-section">
+  <!-- <div class="drawing-section">
     <h5>Drawing</h5>
 
     <div class="workflow-card">
@@ -28,27 +27,51 @@
 
       <button class="btn btn-warning">Start drawing</button>
     </div>
-  </div>
+  </div> -->
 
-  <!-- Units Section -->
-  <div class="units-section">
-    <h5>Units (Qty {{ individual_Request().quantity }})</h5>
+  <!-- Drawing Section-->
 
-    <div class="unit-card">
-      <div class="unit_det">
-        <h6>Unit 1</h6>
-        <small>(First Piece)</small>
-      </div>
+  <h5 class="drawing_header">Drawing</h5>
+  <div class="drawing-card">
+    <div class="drawing-left">
+      <span class="status-badge">
+        {{ individual_Request().status }}
+      </span>
 
-      <span class="locked-badge">Locked</span>
-
-      <p>Waiting on unit 1 to pass QC</p>
+      <span class="drawing-text"> Required before unit 1 can be produced </span>
     </div>
+    <button class="btn btn-warning">Upload<input type="file"></button> 
+    <button class="btn btn-warning">Start drawing</button>
+  </div>
+  <!-- Units Section -->
+
+  <h5 class="unit_header">Units (Qty {{ individual_Request().quantity }})</h5>
+  <div class="units-grid">
+    @for (unit of units; track unit) {
+      <div class="unit-card">
+        <div class="unit-header">
+          <div class="unit-title">
+            <span class="unit-name">Unit {{ unit }}</span>
+            <span class="unit-piece">(first piece)</span>
+          </div>
+
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            Locked
+          </div>
+        </div>
+
+        <div class="unit-description">Waiting on unit 1 to pass QC</div>
+        <button class="produce_button">Start produce</button>
+       
+      </div>
+    }
   </div>
 
   <!-- History Section -->
+   <h5 class="history_heading">History</h5>
   <div class="history-section">
-    <h5>History</h5>
+    
 
     <div class="history-card">No activity yet.</div>
   </div>

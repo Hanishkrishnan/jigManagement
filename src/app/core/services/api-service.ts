@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Drawing } from '../../models/drawing';
 
 @Injectable({
   providedIn: 'root',
@@ -43,5 +44,9 @@ export class ApiService {
 
   getRequestDataByID(id : number){
      return this.http.get<Request>(`http://localhost:8080/requests/${id}`)
+  }
+
+  getDrawingData(){
+    return this.http.get<Drawing>('http://localhost:8080/drawing');
   }
 }

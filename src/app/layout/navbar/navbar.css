@@ -47,6 +47,10 @@
     gap:20px;
 }
 
+.logout{
+     width:50px;
+    cursor:pointer;
+}
 
 .profile{
 

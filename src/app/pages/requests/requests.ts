@@ -15,6 +15,7 @@ export class Requests {
 
   id = signal<number | null>(null);
   individual_Request = signal<any | null>(null);
+  units:any;
 
   constructor(private a_route : ActivatedRoute,
               private apiservice: ApiService,
@@ -39,6 +40,7 @@ export class Requests {
       if (currentId !== null) {
         this.apiservice.getRequestDataByID(currentId).subscribe(data=>{
           this.individual_Request.set(data);
+          this.units = Array.from({ length: this.individual_Request().quantity }, (_, i) => i + 1);
           console.log(data);
         });
       }

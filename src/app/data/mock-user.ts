@@ -1,0 +1,25 @@
+import { User } from '../models/user';
+
+export const MOCK_USERS: User[] = [
+  {
+    id: 1,
+    name: 'Admin User',
+    email: 'admin@test.com',
+    password: 'admin123',
+    role: 'ADMIN'
+  },
+  {
+    id: 2,
+    name: 'Normal User',
+    email: 'user@test.com',
+    password: 'user123',
+    role: 'USER'
+  },
+  {
+    id: 3,
+    name: 'Manager User',
+    email: 'manager@test.com',
+    password: 'manager123',
+    role: 'MANAGER'  
+  }
+];
