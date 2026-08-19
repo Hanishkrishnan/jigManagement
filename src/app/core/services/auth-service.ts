@@ -4,6 +4,7 @@ import { User } from '../../models/user';
 import { MOCK_USERS } from '../../data/mock-user';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID , inject} from '@angular/core';
+import { Permission } from '../../data/permission';
 @Injectable({
   providedIn: 'root',
 })
@@ -72,6 +73,26 @@ export class AuthService {
   //   return this.http.post(`${this.apiUrl}/login`,data);
   // }
 
+  hasPermission(permission: Permission | Permission[]): boolean {
+    const user = this.currentUser();
+
+    if(!user || !permission){
+      return false
+    }
+    const permissions = Array.isArray(permission) ? permission : [permission];
+    return permissions.some(item => user.permission.includes(item))
+  }
+
+  hasAllPermission(permission: Permission | Permission[]) : boolean{
+   const user = this.currentUser();
+
+    if(!user || !permission){
+      return false
+    }
+    const permissions = Array.isArray(permission) ? permission : [permission];
+    return permissions.every(item => user.permission.includes(item))
+  }
+  
   saveToken(token:string){
     localStorage.setItem('token',token)
   }

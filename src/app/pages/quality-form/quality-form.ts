@@ -6,7 +6,7 @@ import { Navbar } from '../../layout/navbar/navbar';
 
 @Component({
   selector: 'app-quality-form',
-  imports: [ReactiveFormsModule,Sidebar,Navbar],
+  imports: [ReactiveFormsModule],
   standalone:true,
   templateUrl: './quality-form.html',
   styleUrl: './quality-form.css',

@@ -1,0 +1,11 @@
+export type Permission = 
+    'REQUEST_READ'
+  | 'REQUEST_CREATE'
+  | 'REQUEST_UPDATE'
+  | 'REQUEST_DELETE'
+  | 'REQUEST_APPROVE'
+  | 'REQUEST_REJECT'
+  | 'USER_READ'
+  | 'USER_CREATE'
+  | 'USER_UPDATE'
+  | 'USER_DELETE';

@@ -9,15 +9,6 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const  platformId = inject(PLATFORM_ID)
   
-  console.log(
-    'AUTH GUARD:',
-    authService.currentUser()
-  );
-
-  console.log(
-    'AUTHENTICATED:',
-    authService.isAuthenticated()
-  );
   // SSR
   if (!isPlatformBrowser(platformId)) {
     return true;
@@ -25,7 +16,7 @@ export const authGuard: CanActivateFn = (route, state) => {
    if (authService.isAuthenticated()) {
     return true;
   }
-  return router.createUrlTree(['/login'], {queryParams : {returnUrl : state.url}});;
+  return router.createUrlTree(['/login'], {queryParams : {returnUrl : state.url}});
 };
 
 

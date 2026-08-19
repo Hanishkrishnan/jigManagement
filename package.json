@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:jest": "jest",
     "serve:ssr:jig-management-ui": "node dist/jig-management-ui/server/server.mjs"
   },
   "private": true,
@@ -33,7 +34,10 @@
     "@angular/cli": "^21.2.11",
     "@angular/compiler-cli": "^21.2.0",
     "@types/express": "^5.0.1",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.17.19",
+    "jest": "^30.4.2",
+    "jest-preset-angular": "^17.0.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",

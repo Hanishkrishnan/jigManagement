@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { Sidebar } from '../../layout/sidebar/sidebar';
-import { Navbar } from '../../layout/navbar/navbar';
 import { ApiService } from '../../core/services/api-service';
 import { Drawing } from '../../models/drawing';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-drawing-component',
-  imports: [Sidebar,Navbar,CommonModule],
+  imports: [CommonModule],
   templateUrl: './drawing-component.html',
   styleUrl: './drawing-component.css',
 })

@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { Sidebar } from '../../layout/sidebar/sidebar';
-import { Navbar } from '../../layout/navbar/navbar';
 
 @Component({
   selector: 'app-produce-component',
-  imports: [Sidebar,Navbar],
+  imports: [],
   templateUrl: './produce-component.html',
   styleUrl: './produce-component.css',
 })

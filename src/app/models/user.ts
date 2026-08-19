@@ -1,3 +1,4 @@
+import { Permission } from '../data/permission';
 import { Role } from '../data/role';
 export interface User {
   id: number;
@@ -5,4 +6,5 @@ export interface User {
   email: string;
   password: string;
   role: Role;
+  permission : Permission[]
 }

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { JigService } from '../../core/services/jig-service';
-import { Sidebar } from '../../layout/sidebar/sidebar';
+import { HasPermission } from '../../directives/has-permission';
 
 @Component({
   selector: 'app-jig-form',
   standalone:true,
-  imports: [ReactiveFormsModule,Sidebar], 
+  imports: [ReactiveFormsModule,HasPermission], 
   templateUrl: './jig-form.html',
   styleUrls: ['./jig-form.css'],
 })

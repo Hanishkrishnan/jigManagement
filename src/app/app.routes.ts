@@ -12,6 +12,7 @@ import { authGuard } from './core/guards/auth-guard';
 import { roleGuardGuard } from './core/guards/role-guard-guard';
 import { Unauthorized } from './pages/unauthorized/unauthorized';
 import { Layout } from './layout/layout/layout';
+import { permissionGuard } from './core/guards/permission-guard';
 
 export const routes: Routes = [
     {
@@ -67,18 +68,22 @@ export const routes: Routes = [
         {
             path: 'requests/:id',
             component: Requests,
-            canActivate: [roleGuardGuard],
+            canActivate: [roleGuardGuard,permissionGuard],
             data: {
-                roles: ['ADMIN', 'MANAGER']
+                roles: ['ADMIN', 'MANAGER'],
+                permission : ['REQUEST_READ' , 'REQUEST_UPDATE'],
+                mode : 'all'
             }
         },
 
         {
             path: 'drawing',
             component: DrawingComponent,
-            canActivate: [roleGuardGuard],
+            canActivate: [roleGuardGuard,permissionGuard],
             data: {
-                roles: ['ADMIN', 'MANAGER']
+                roles: ['ADMIN', 'MANAGER'],
+                permission : ['REQUEST_READ' , 'REQUEST_UPDATE','USER_CREATE'],
+                mode : 'all'
             }
         },
             {
@@ -86,7 +91,7 @@ export const routes: Routes = [
         component: HandoverComponent,
         canActivate:[roleGuardGuard],
         data: {
-        roles:['ADMIN']
+        roles:['ADMIN', 'MANAGER']
     }
     },
 
@@ -95,15 +100,16 @@ export const routes: Routes = [
             component: ProduceComponent,
             canActivate: [roleGuardGuard],
             data: {
-                roles: ['ADMIN']
+                roles: ['ADMIN', 'MANAGER']
             }
-        }
-
-    ]
-},
-    {
+        },
+        {
         path: 'unauthorized',
         component: Unauthorized
     }
+
+    ]
+},
+  
 
 ];

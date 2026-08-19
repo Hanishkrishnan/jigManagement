@@ -13,3 +13,11 @@ form{
 input,select{
  padding:10px;
 }
+.view{
+    display: grid;
+    grid-template-columns:1fr 1fr;
+     
+}
+.viewButton{
+    gap: 5px;
+}

@@ -1,9 +1,7 @@
-<app-sidebar></app-sidebar>
 
-<div>
-  <h1>Create JIG</h1>
-
+<div class="view">
   <form [formGroup]="jigForm" (ngSubmit)="create()">
+    <h1>Create JIG</h1>
     <label for="projectName">Project</label>
 
     <select formControlName="projectName">
@@ -25,4 +23,14 @@
 
     <button class="btn btn-primary">Create</button>
   </form>
+  <div class="viewButton">
+    <!-- Changing View based on loggedIn User using custom directive -->
+    <button *appHasPermission="['REQUEST_CREATE' , ]">Admin</button>
+    <button *appHasPermission="'REQUEST_UPDATE'">Update</button>
+    <button *appHasPermission="'REQUEST_DELETE'">Delete</button>
+    <button *appHasPermission="'REQUEST_APPROVE'">Approve</button>
+    <button *appHasPermission="'REQUEST_READ'">Normal User</button>
+    <!-- disable button based on permission -->
+    <button>Disable button</button>
+  </div>
 </div>
